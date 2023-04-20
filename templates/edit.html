@@ -1,0 +1,12 @@
+<title>Edit Profile</title>
+
+<form method="post" name="Edit">
+    {% csrf_token%}
+    <p>First Name: </p>
+    <input type="text" name="firstName" />
+    <p>Last Name: </p>
+    <input type="text" name="lastName" />
+    <p>Bio: </p>
+    <input type="text" name="bio" />
+    <input type="submit" value="Save"/>
+</form>>

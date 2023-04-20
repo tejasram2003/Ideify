@@ -1,0 +1,8 @@
+<h1>DELETE POST</h1>
+
+
+<form method="post" action="delete/../{{id}}">
+    {% csrf_token %}
+    <h3>Are you sure you want to delete the post?</h3>
+    <input type="submit" value="confirm" />
+</form>

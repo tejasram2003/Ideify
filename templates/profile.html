@@ -1,0 +1,87 @@
+<head>
+    <title>Profile - {{user.username}}</title>
+</head>
+
+{% load static %}
+
+<style>
+
+.rightcolumn {
+    float: right;
+    width:50%;
+    margin-top: -320px;
+}
+
+.username {
+    background-color: black;
+    color: white;
+    margin-right:1300px ;
+}
+
+.Bio {
+    background-color: floralwhite;
+    margin-right: 1000px;
+}
+
+.icon {
+    float: left;
+    width: 10%;
+    height: 10%;
+    margin-right: 1000px;
+    margin-bottom: 10px;
+}
+
+.profile {
+    width: 100px;
+    position: left;
+    margin-top: -20px;
+    margin-right: 1500px;
+    border-radius: 50px;
+  }
+
+  .new {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+}
+
+</style>
+
+{% if user.is_authenticated %}
+<div class="new">
+    <a href="../new" style="text-decoration: none; color: black;">New post</a>
+</div>
+{% endif %}
+
+
+<a class="icon" href = '/' style="text-decoration: none; color: black;"><h1>&lt=</h1></a>
+
+<a href = "/../edit/{{user.username}}">
+<img class="profile" src="{% static 'images/aaaaaaaa.jpg' %}"></a>
+
+
+<div>
+<h1 class="username">{{user.username}}</h1><h2>About:</h2>
+<p class="Bio">{{user.profile.bio}}</p>
+</div>
+
+
+<div class="row">
+    <div class="rightcolumn">
+      {% for post in posts reversed %}
+      {% if post.author.username == user.username %}
+      <div class="card">
+        <a href="/post/{{post.id}}" style="text-decoration: none; color: black" action = 'post'>
+          <h2>{{post.title}}</h2>
+          <h5>{{post.post_time}}</h5>
+          <p>{{post.content|truncatewords:20}}</p>
+        </a>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+

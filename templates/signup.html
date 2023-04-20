@@ -1,0 +1,32 @@
+<h1>sign up page</h1>
+
+<title>Sign-up</title>
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+{% for message in messages %}
+<h5 class="Error">{{message}}</h5>
+{% endfor %}
+
+<form method="post" action="signup">
+    {% csrf_token %}
+    <p>Username:</p>
+    <input type="Username" name="username" />
+
+    <p>Password:</p>
+    <input type="Password" name="password" />
+
+    <p>Confirm Password:</p>
+    <input type="Password" name="confirmPassword" />
+
+    <input type="submit" />
+
+    <br>
+    <br>
+    <a href="login" style="text-decoration: none;">Already a user? Login here</a>
+
+</form>

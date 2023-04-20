@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% load static %}
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.profile {
+  width: 100px;
+  border-radius: 50px;
+}
+
+.header {
+  padding: 2px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.profile {
+  width: 100px;
+  position: right;
+}
+
+.dropdown {
+  position: relative;
+  display:inline-block;
+}
+
+.submenu {
+  position: absolute;
+  display: none;
+  font-size: 25px;
+  margin-top: 10px;
+  float: inline;
+
+}
+
+.new {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+  margin-top: 85px;
+
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<div class="new">
+    <a href="new" style="text-decoration: none; color: black;">New post</a>
+</div>
+{% endif %}
+
+<div class="header">
+  <div class="dropdown">
+    <img class = "profile" src="{% static 'images/aaaaaaaa.jpg' %}" align="right">
+    <div class = "submenu">
+        {% if user.is_authenticated %}
+        <a href = "profile/{{user.username}}" style="text-decoration: none; color:black"  >Profile</a>
+        <a href = "logout" style="text-decoration: none; color:black">Logout</a>
+        {% else %}
+        <a href = "login" style="text-decoration: none; color:black">&nbsp&nbsp&nbsplogin</a>
+        {% endif %}
+    </div>
+  </div>
+  {% if user.is_authenticated %}
+  <h3>Welcome {{user.username}}</h3>
+  {% else %}
+  <h3>Welcome Guest</h3>
+{% endif %}
+</div>
+
+<div>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    {% for post in posts reversed %}
+    <div class="card">
+      <a href="/post/{{post.id}}" style="text-decoration: none; color: black" action = 'post'>
+        <h2>{{post.title}}</h2>
+        <a href="profile/{{post.author.username}}" style="text-decoration: none; color: black;"><h3>{{post.author.username}}</h3></a>
+        <h5>{{post.post_time}}</h5>
+        <p>{{post.content|truncatewords:20}}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% if not user.is_authenticated %}
+<a class = 'signin' method="post" href="signup">sign-in/sign-up</a>
+{% else %}
+
+<a class ='signin' method="post" href="logout">logout</a> 
+{% endif %}
+
+
+
+</body>
+</html>

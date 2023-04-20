@@ -1,0 +1,15 @@
+<h1>Share whatever's on your mind!</h1>
+
+<h3>{{user.username}}</h3>
+
+<form method="post" action="new">
+    {% csrf_token %}
+    <p>Title: </p>
+    <input style="width: 500px;" type="text" name="title" /><br>
+    <p>Content of your post: </p>
+    <input style="width: 500px; height: 400px;" type="text" name="content" /><br>
+    <br>
+    <input type="submit" style="width: 75px;" value="Post" />
+
+    <a href="cancel" style="text-decoration: none; color:black;">Cancel</a>
+</form>
