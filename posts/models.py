@@ -9,7 +9,7 @@ class Post(models.Model):
     post_time = models.DateTimeField(default= datetime.now, blank = True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
 
-class profile(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField()
     def __str__(self):

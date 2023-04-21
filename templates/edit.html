@@ -1,6 +1,6 @@
 <title>Edit Profile</title>
 
-<form method="post" name="Edit">
+<form method="post" action = "{% url 'edit' %}">
     {% csrf_token%}
     <p>First Name: </p>
     <input type="text" name="firstName" />

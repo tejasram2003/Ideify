@@ -49,16 +49,20 @@
 
 {% if user.is_authenticated %}
 <div class="new">
-    <a href="../new" style="text-decoration: none; color: black;">New post</a>
+    <a href="{% url 'new' %}" style="text-decoration: none; color: black;">New post</a>
 </div>
 {% endif %}
 
 
 <a class="icon" href = '/' style="text-decoration: none; color: black;"><h1>&lt=</h1></a>
 
-<a href = "/../edit/{{user.username}}">
+{% if user.username == logged_in_user.username %}
+<a href = "{% url 'edit' %}">
 <img class="profile" src="{% static 'images/aaaaaaaa.jpg' %}"></a>
 
+{% else %}
+<img class="profile" src="{% static 'images/aaaaaaaa.jpg' %}">
+{% endif %}
 
 <div>
 <h1 class="username">{{user.username}}</h1><h2>About:</h2>

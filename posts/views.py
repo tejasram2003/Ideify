@@ -2,8 +2,10 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import Post,profile
+from .models import Post,Profile
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -25,7 +27,7 @@ def signup(request):
                 return redirect('signup')
             else:
                 user = User.objects.create_user(username=username,password=password)
-                user.save()
+                profile = Profile.objects.create(user=user)
                 return redirect('login')
         else:
             messages.info(request,'Passwords do not match')
@@ -53,14 +55,19 @@ def logout(request):
 def profile(request,name):
     posts = Post.objects.all()
     profile = User.objects.get(username=name)
-    return render(request,'profile.html',{'posts': posts,'user': profile})
+    return render(request,'profile.html',{'posts': posts,'user': profile,'logged_in_user': request.user})
 
-
-def edit(request,name):
-    user = User.objects.get(username=name)
+@login_required
+def edit(request):
+    user = request.user
     if request.method == 'POST':
+        user.first_name = request.POST.get('firstName')
+        user.last_name = request.POST.get('lastName')
+        user.profile.bio = request.POST.get('bio')
+        user.save()
+        user.profile.save()
         return redirect('/')
-    return render(request,'edit.html',{'user': user})
+    return render(request,'edit.html',{'user': user,'profile': profile,'name': user.username})
 
 def new(request):
     if request.method == 'POST':
