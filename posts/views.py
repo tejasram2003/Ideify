@@ -55,7 +55,9 @@ def logout(request):
 def profile(request,name):
     posts = Post.objects.all()
     profile = User.objects.get(username=name)
-    return render(request,'profile.html',{'posts': posts,'user': profile,'logged_in_user': request.user})
+    first_name = profile.first_name
+    last_name = profile.last_name
+    return render(request,'profile.html',{'posts': posts,'user': profile,'logged_in_user': request.user,'first':first_name,'last':last_name})
 
 @login_required
 def edit(request):
