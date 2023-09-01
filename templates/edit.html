@@ -1,5 +1,57 @@
 <title>Edit Profile</title>
 
+<style>
+    /* Form container */
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form input fields */
+    p {
+        margin: 0;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* Submit button */
+    input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+        color: #333;
+    }
+</style>
+
+<div class="container">
+    <h1>Edit profile</h1>
 <form method="post" action = "{% url 'edit' %}">
     {% csrf_token%}
     <p>First Name: </p>
@@ -9,4 +61,5 @@
     <p>Bio: </p>
     <input type="text" name="bio" />
     <input type="submit" value="Save"/>
-</form>>
+</form>
+</div>

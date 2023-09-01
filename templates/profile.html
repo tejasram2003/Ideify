@@ -5,56 +5,167 @@
 {% load static %}
 
 <style>
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+  }
 
-.rightcolumn {
-    float: right;
-    width:50%;
-    margin-top: -320px;
+  .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .header {
+      text-align: center;
+      padding: 16px;
+      font-size: 24px;
+      background-color: #333;
+      color: #fff;
+  }
+
+  .profile-image {
+      width: 10px;
+      border-radius: 50%;
+      margin: -50px auto 20px;
+      display: block;
+  }
+
+  .username {
+      text-align: left;
+      background-color: #333;
+      color: #fff;
+      margin-top: -10px;
+      padding: 10px;
+  }
+
+  .bio {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .navigation a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+  }
+
+  .navigation a:hover {
+      text-decoration: underline;
+  }
+
+  .rightcolumn {
+    float: none; /* Remove the float to make it centered */
+    margin: 0 auto; /* Center-align the content */
+    width: 80%; /* Adjust the width as needed */
 }
 
-.username {
-    background-color: black;
-    color: white;
-    margin-right:1300px ;
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+    clear: both; /* Clear the float to ensure proper layout */
 }
 
-.Bio {
-    background-color: floralwhite;
-    margin-right: 1000px;
-}
+  .card {
+      background-color: #fff;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-.icon {
-    float: left;
-    width: 10%;
-    height: 10%;
-    margin-right: 1000px;
-    margin-bottom: 10px;
-}
+  .card a {
+      text-decoration: none;
+      color: #333;
+  }
 
-.profile {
+  .card h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+  }
+
+  .card h5 {
+      color: #555;
+      margin-bottom: 10px;
+  }
+
+  .card p {
+      margin: 0;
+  }a
+  .profile {
     width: 100px;
     position: left;
     margin-top: -20px;
     margin-right: 1500px;
     border-radius: 50px;
   }
-
   .new {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-}
+    text-align: right;
+  }
 
+  .new a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333; /* Button background color */
+        color: #fff; /* Text color */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .new a:hover {
+        background-color: #555; /* Button background color on hover */
+    }
+
+    .icon {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #333;
+        border-radius: 5px;
+        font-size: 18px;
+        height: 30px; /* Set an explicit height to control the y-axis size */
+        line-height: 30px; /* Center the text vertically */
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .icon:hover {
+        background-color: #555;
+        border-color: #555;
+    }
+
+  
 </style>
 
 {% if user.is_authenticated %}
 <div class="new">
-    <a href="{% url 'new' %}" style="text-decoration: none; color: black;">New post</a>
+    <a href="{% url 'new' %}" style="text-decoration: none;">New post</a>
 </div>
 {% endif %}
 
 
-<a class="icon" href = '/' style="text-decoration: none; color: black;"><h1>&lt=</h1></a>
+{% if user.is_authenticated %}
+<div class="new">
+    <a href="{% url 'index' %}" style="text-decoration: none;">Home</a>
+</div>
+{% endif %}
+
 
 {% if user.username == logged_in_user.username %}
 <a href = "{% url 'edit' %}">

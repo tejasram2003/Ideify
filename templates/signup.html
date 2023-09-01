@@ -3,10 +3,71 @@
 <title>Sign-up</title>
 
 <style>
+    /* Global styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Form container */
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form input fields */
+    p {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Submit button */
+    input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    /* Link to login */
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Error message */
     .error {
         color: red;
+        margin-top: 10px;
     }
 </style>
+
 
 {% for message in messages %}
 <h5 class="Error">{{message}}</h5>

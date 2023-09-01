@@ -1,58 +1,96 @@
-<style>
-
-
-    .card {
-        padding: 20px;
-        margin-top: 2opx;
-    }
-
-    .leftcolumn {
-        width: 50%;
-        float: left;
-        margin-right: 300px;
-    }
-
-    h1 {
-        background-color: black;
-        color: white;
-        size-adjust: 10px;
-    }
-
-    .new {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-}
-
-.delete {
-    position: absolute;
-    top: 20px;
-    right: 125px;
-}
-
-</style>
+<head>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Center-align container */
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Adjust the minimum height for vertical alignment */
+        }
+    
+        /* Card styles */
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    
+        /* Column styles */
+        .leftcolumn {
+            width: 50%;
+        }
+    
+        /* Button styles */
+        .new,
+        .delete {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
+        .delete {
+            right: 125px;
+        }
+    
+        .new:hover,
+        .delete:hover {
+            background-color: #555;
+        }
+    
+        /* Link styles */
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 
 <title>{{post.title}}</title>
-
+</head>
+<body>
 {% if user.is_authenticated %}
 <div class="new">
-    <a href="../new" style="text-decoration: none; color: black;">New post</a>
+    <a href="../new" style="text-decoration: none; ">New post</a>
 </div>
 
 <div class="delete">
-    <a href="../delete/{{post.id}}" style="text-decoration: none; color: black;">Delete post</a>
+    <a href="../delete/{{post.id}}" style="text-decoration: none; ">Delete post</a>
 </div>
 {% endif %}
 
-<div class="row">
+<div class="center-container">
     <div class="leftcolumn">
         <div class="card">
-
-        <h1>{{post.title}}</h1>
-        <a href="../profile/{{post.author.username}}" style="text-decoration: none; color: black;"><h4>By: {{post.author.first_name}}</h4></a>
-        <p>{{post.content}}</p>
-        <h6>{{post.post_time}}</h6>
-
+            <h1>{{ post.title }}</h1>
+            <a href="../profile/{{ post.author.username }}" style="text-decoration: none; color: black;"><h4>By: {{ post.author.first_name }}</h4></a>
+            <p>{{ post.content }}</p>
+            <h6>{{ post.post_time }}</h6>
         </div>
     </div>
 </div>
+</body>
