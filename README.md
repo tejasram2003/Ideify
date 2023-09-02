@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Project Name - README</title>
+<!-- <meta charset="UTF-8">
 <style>
 body {
             font-family: Arial, sans-serif;
@@ -42,7 +41,7 @@ footer {
             text-align: center;
             margin-top: 20px;
         }
-</style>
+</style> -->
 </head>
 <body>
 <h1>Ideify</h1>
