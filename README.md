@@ -84,7 +84,7 @@ footer {
 <h3>Profile</h3>
 <img src="https://ik.imagekit.io/tejasram/Ideify/profile.jpg?updatedAt=1693680130809" width="600" alt="correlation Matrix image">
 <h3>Edit your profile</h3>
-<img src="https://ik.imagekit.io/tejasram/Ideify/profile.jpg?updatedAt=1693680130809" width="600" alt="correlation Matrix image">
+<img src="https://ik.imagekit.io/tejasram/Ideify/edit_profile.jpg?updatedAt=1693680130624" width="600" alt="correlation Matrix image">
 <h3>Create a post</h3>
 <img src="https://ik.imagekit.io/tejasram/Ideify/new_post.jpg?updatedAt=1693680130634" width="600" alt="correlation Matrix image">
 <h3>Home Page</h3>
