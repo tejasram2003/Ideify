@@ -8,28 +8,22 @@ body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-
 h1 {
             color: #333;
         }
-
 h2 {
             color: #555;
         }
-
 p {
             margin-bottom: 10px;
         }
-
 ul {
             list-style-type: disc;
             margin-left: 20px;
         }
-
 li {
             margin-bottom: 5px;
         }
-
 code {
             font-family: Consolas, monospace;
             background-color: #f0f0f0;
@@ -37,14 +31,12 @@ code {
             border: 1px solid #ccc;
             border-radius: 3px;
         }
-
 hr {
             margin-top: 20px;
             margin-bottom: 20px;
             border: 0;
             border-top: 1px solid #ccc;
         }
-
 footer {
             color: #777;
             text-align: center;
@@ -91,7 +83,7 @@ footer {
 <h3>Viewing a post</h3>
 <img src="https://ik.imagekit.io/tejasram/Ideify/view_post.jpg?updatedAt=1693680130842" width="600" alt="correlation Matrix image">
 <h3>Profile</h3>
-<img src="screenshots\profile.jpg" width="600" alt="correlation Matrix image">
+<img src="https://ik.imagekit.io/tejasram/Ideify/profile.jpg?updatedAt=1693680130809" width="600" alt="correlation Matrix image">
 <h3>Edit your profile</h3>
 <img src="https://ik.imagekit.io/tejasram/Ideify/profile.jpg?updatedAt=1693680130809" width="600" alt="correlation Matrix image">
 <h3>Create a post</h3>
