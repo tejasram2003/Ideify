@@ -57,10 +57,10 @@ footer {
 <h2>Getting Started</h2>
 <p>Follow these steps to get started with the project:</p>
 <ol>
-        <li>Clone the repository: <code>git clone https://github.com/your-username/your-project.git</code></li>
-        <li>Install dependencies: <code>npm install</code> or <code>pip install -r requirements.txt</code></li>
+        <li>Clone the repository: <code>git clone https://github.com/tejasram2003/Ideify.git</code></li>
+        <li>Install dependencies: <code>pip install django</code></li>
         <li>Configure settings: Update configuration files or environment variables as needed.</li>
-        <li>Run the project: <code>npm start</code> or <code>python manage.py runserver</code></li>
+        <li>Run the project: <code>python manage.py runserver</code></li>
         <li>Have Fun: Now, you can play around and tweak things to update the website as you please.</li>
 </ol>
 
